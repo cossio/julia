@@ -393,6 +393,7 @@ reverse(t::Tuple) = revargs(t...)
 # TODO: this is inconsistent with the regular sum in cases where the arguments
 # require size promotion to system size.
 sum(x::Tuple{Any, Vararg{Any}}) = +(x...)
+sum(f, x::Tuple{Any, Vararg{Any}}) = +(f.(x)...) # 30465
 
 # NOTE: should remove, but often used on array sizes
 # TODO: this is inconsistent with the regular prod in cases where the arguments
